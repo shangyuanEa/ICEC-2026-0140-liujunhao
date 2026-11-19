@@ -1,6 +1,4 @@
 pydub
 numpy
-pandas
 scipy
-sounddevice
-# 注意：pydub 还依赖系统安装的 FFmpeg，需单独配置 PATH
+matplotlib

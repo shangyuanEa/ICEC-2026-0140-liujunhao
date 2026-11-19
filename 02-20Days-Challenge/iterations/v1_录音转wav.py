@@ -1,48 +1,27 @@
 import os
-import subprocess
+from pydub import AudioSegment
 
-# ffmpeg 绝对路径
-ffmpeg_path = os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-9.0.2-full_build\bin\ffmpeg.exe")
+# 基于脚本所在目录算绝对路径
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+RAW_DIR = os.path.join(PROJECT_DIR, "data", "raw")
+PROCESSED_DIR = os.path.join(PROJECT_DIR, "data", "processed")
 
-BASE_DIR = r"D:\liujunhao.Github\ICEC-2026-0140-liujunhao\02-20Days-Challenge"
-RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
-PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed")
+def convert_m4a_to_wav():
+    if not os.path.exists(PROCESSED_DIR):
+        os.makedirs(PROCESSED_DIR)
 
-# 创建输出文件夹
-if not os.path.exists(PROCESSED_DIR):
-    os.makedirs(PROCESSED_DIR)
+    for file in sorted(os.listdir(RAW_DIR)):
+        if file.lower().endswith(".m4a"):
+            m4a_path = os.path.join(RAW_DIR, file)
+            wav_filename = os.path.splitext(file)[0] + ".wav"
+            wav_path = os.path.join(PROCESSED_DIR, wav_filename)
 
-print(f"ffmpeg 路径: {ffmpeg_path}")
-print(f"原始文件夹: {RAW_DIR}")
-print(f"输出文件夹: {PROCESSED_DIR}")
-print("=" * 50)
+            audio = AudioSegment.from_file(m4a_path)
+            audio.export(wav_path, format="wav", parameters=["-acodec", "pcm_s16le"])
+            print(f"已转换: {file} -> {wav_filename}")
 
-# 遍历转换
-for file in sorted(os.listdir(RAW_DIR)):
-    if file.lower().endswith(".m4a"):
-        m4a_path = os.path.join(RAW_DIR, file)
-        wav_path = os.path.join(PROCESSED_DIR, file.replace(".m4a", ".wav"))
-        
-        print(f"正在转换: {file}")
-        
-        # 直接用 ffmpeg 命令行：转 44100Hz / 单声道 / 16bit PCM
-        cmd = [
-            ffmpeg_path,
-            "-i", m4a_path,
-            "-ar", "44100",
-            "-ac", "1",
-            "-acodec", "pcm_s16le",
-            "-y",  # 覆盖已存在文件
-            wav_path
-        ]
-        
-        result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="ignore")
-        
-        if result.returncode == 0:
-            print(f"  ✓ 成功: {os.path.basename(wav_path)}")
-        else:
-            print(f"  ✗ 失败: {file}")
-            print(f"    错误信息: {result.stderr[-200:]}")  # 打印最后200字符的错误
+    print("全部转换完成！")
 
-print("=" * 50)
-print("全部转换完成！")
+if __name__ == "__main__":
+    convert_m4a_to_wav()

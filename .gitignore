@@ -1,5 +1,15 @@
-# 忽略转码后的 wav 大文件，保留 m4a（体积小，继续上传）
-02-20Days-Challenge/data/processed/*.wav
+# Python
+__pycache__/
+*.pyc
 
-# 频谱图大图也忽略，保留 csv
+# 编辑器
+.vscode/
+
+# 02 项目大文件不传 Git
+02-20Days-Challenge/data/processed/*.wav
 02-20Days-Challenge/data/processed/频谱图/
+
+# m4a 原始录音体积小，允许上传
+# processed 下的 csv 成果文件允许上传
+# 空目录占位
+!*.gitkeep
