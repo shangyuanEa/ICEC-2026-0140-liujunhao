@@ -1,0 +1,16 @@
+﻿file,true_label,predict,correct
+一档第1次,normal_speed1,正常,是
+一档第2次,normal_speed1,正常,是
+一档第3次,normal_speed1,正常,是
+三档第1次,normal_speed3,正常,是
+三档第2次,normal_speed3,正常,是
+三档第3次,normal_speed3,正常,是
+二档第1次,normal_speed2,正常,是
+二档第2次,normal_speed2,正常,是
+二档第3次,normal_speed2,正常,是
+卡入异物第1次,foreign_paper,正常,否
+卡入异物第2次,foreign_paper,正常,否
+卡入异物第3次,foreign_paper,正常,否
+进风口堵住第1次,intake_block,异常,是
+进风口堵住第2次,intake_block,异常,是
+进风口堵住第3次,intake_block,异常,是

@@ -1,0 +1,5 @@
+# 忽略转码后的 wav 大文件，保留 m4a（体积小，继续上传）
+02-20Days-Challenge/data/processed/*.wav
+
+# 频谱图大图也忽略，保留 csv
+02-20Days-Challenge/data/processed/频谱图/
