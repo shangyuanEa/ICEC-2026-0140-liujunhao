@@ -1,4 +1,7 @@
-pydub
-numpy
-scipy
-matplotlib
+Python 3.12 
+pydub 
+ffmpeg 
+numpy  
+scipy 
+matplotlib 
+pandas
