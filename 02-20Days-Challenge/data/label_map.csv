@@ -14,3 +14,13 @@ file,label
 进风口堵住第1次.m4a,intake_block
 进风口堵住第2次.m4a,intake_block
 进风口堵住第3次.m4a,intake_block
+盲侧第1次.m4a,blind_side
+盲侧第2次.m4a,blind_side
+盲侧第3次.m4a,blind_side
+盲测第1次.m4a,blind_test
+盲测第2次.m4a,blind_test
+盲测第3次.m4a,blind_test
+盲测第4次.m4a,blind_test
+盲测第5次.m4a,blind_test
+抗噪第1次.m4a,noise_test
+抗噪第2次.m4a,noise_test
