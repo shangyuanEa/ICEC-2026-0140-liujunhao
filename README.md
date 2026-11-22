@@ -71,5 +71,60 @@
 - `reports/实验报告.md`：完整实验报告，含摘要、方法、结果、结论、局限
 - 汇总采集记录25条、盲测100%、抗噪100% 全部产出
 
-### 依赖
+---
+
+## 目录结构
+
+02-20Days-Challenge/
+
+├── iterations/
+
+│   ├── v1_录音转wav.py        # 转码（防重转）
+
+│   ├── v2_fft特征提取.py      # 增量特征提取
+
+│   ├── v3_分类器.py           # 规则分类
+
+│   ├── v4_盲测.py             # 盲测预测
+
+│   ├── v5_盲测比对.py          # 答案比对
+
+│   ├── v6_抗噪分类器.py        # 抗噪测试
+
+│   └── v7_对比图.py           # 可视化
+
+├── process_logs/
+
+│   ├── 采集记录.csv            # 25条采集记录
+
+│   └── 抗噪说明.md
+
+├── data/
+
+│   ├── raw/                   # 25个原始 m4a
+
+│   ├── processed/             # wav + 特征汇总 + 各类结果csv
+
+│   ├── label_map.csv
+
+│   └── 盲测答案.csv
+
+└── reports/
+
+├── 实验报告.md
+
+├── 盲测录屏.mp4  
+
+└── 实验照片/
+
+## 依赖
 Python 3.12 · pydub · ffmpeg · numpy · scipy · matplotlib · pandas
+
+## 运行方式
+仓库目录依次运行：
+
+ 02-20Days-Challenge/iterations/v1_录音转wav.py
+ 02-20Days-Challenge/iterations/v2_fft特征提取.py
+ 02-20Days-Challenge/iterations/v6_抗噪分类器.py
+ 02-20Days-Challenge/iterations/v7_对比图.py
+ 
