@@ -66,7 +66,10 @@
 - 说明文档：`process_logs/抗噪说明.md`
 
 ### 模块五：实验报告
-> 待最后一天补充
+
+- `v7_对比图.py`：生成主频分布与高频占比对比箱线图
+- `reports/实验报告.md`：完整实验报告，含摘要、方法、结果、结论、局限
+- 汇总采集记录25条、盲测100%、抗噪100% 全部产出
 
 ### 依赖
 Python 3.12 · pydub · ffmpeg · numpy · scipy · matplotlib · pandas
