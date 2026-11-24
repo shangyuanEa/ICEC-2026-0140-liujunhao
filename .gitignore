@@ -1,0 +1,25 @@
+# 本地自用工具，不入库
+04-Ranking-Toolkit/
+
+# ===== 全局基础忽略规则 =====
+# 忽略 Python 编译缓存
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# 忽略虚拟环境
+.venv/
+venv/
+env/
+.env
+
+# w1切分音频的副产物（60个wav + 频谱图），不纳入版本控制
+02-20Days-Challenge/data/processed/w1运行副产物/*
